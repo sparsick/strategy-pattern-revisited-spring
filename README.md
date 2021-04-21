@@ -1,4 +1,4 @@
-# Strategy Patter Revisited With Spring
+# Strategy Pattern Revisited With Spring
 
 ![Build Status](https://github.com/sparsick/strategy-pattern-revisited-spring/workflows/MavenBuild/badge.svg)
 
