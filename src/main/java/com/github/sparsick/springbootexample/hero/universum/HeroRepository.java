@@ -1,12 +1,23 @@
 package com.github.sparsick.springbootexample.hero.universum;
-
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import java.util.Collection;
 
-public interface HeroRepository {
+public abstract class HeroRepository {
 
-    String getName();
+    protected Collection<Hero> heroes;
+    protected Counter counter;
+    protected String name;
+    public HeroRepository(MeterRegistry meterRegistry) {}
 
-    void addHero(Hero hero);
+    String getName() { return name; }
 
-    Collection<Hero> allHeros();
+    void addHero(Hero hero) {
+        counter.increment();
+        heroes.add(hero);
+    }
+
+    Collection<Hero> allHeroes()  {
+        return heroes;
+    }
 }
